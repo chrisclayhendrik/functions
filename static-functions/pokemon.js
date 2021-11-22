@@ -8,7 +8,7 @@ class Pokemon {
 
 
     static isValidPokemonType(type) {
-        return type === 'fire' || type === 'water' || type === 'earth' || type === 'electric';
+        return type === 'fire' || type === 'water' || type === 'earth' || type === 'electric' || type === 'ghost';
     }
 
     static isValidPokemonHP(hp) {
@@ -16,16 +16,19 @@ class Pokemon {
     }
 
     static isValidPokemonNumber(number) {
-        return number > 0 && number < 898;
+        return number > 0 && number <= 898;
     }
 
     static isValidPokemonName(name) {
-        return name.length > 0;
+        return typeof name === 'string' && name.length > 0;
     }
 
-    static isValidPokemon (name, number, type, hp) {
-        return this.isValidPokemonName(name) && this.isValidPokemonNumber(number) && this.isValidPokemonType(type) && this.isValidPokemonHP(hp);
+    static isValidPokemon (pokemon) {
+        return Pokemon.isValidPokemonName(pokemon.name) && Pokemon.isValidPokemonNumber(pokemon.number) && Pokemon.isValidPokemonType(pokemon.type) && Pokemon.isValidPokemonHP(pokemon.hp);
     }
 }
 
-console.log(Pokemon.isValidPokemon('Pikachu', 1, 'electric', 100));
+//console.log(Pokemon.isValidPokemon('Pikachu', 1, 'electric', 100));
+
+const gengar = new Pokemon('Gengar', 94, 'ghost', 60);
+console.log(Pokemon.isValidPokemon(gengar));
