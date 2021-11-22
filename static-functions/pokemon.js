@@ -6,6 +6,7 @@ class Pokemon {
         this.hp = hp;
     }
 
+
     static isValidPokemonType(type) {
         return type === 'fire' || type === 'water' || type === 'earth' || type === 'electric';
     }
@@ -27,4 +28,4 @@ class Pokemon {
     }
 }
 
-console.log(Pokemon.isValidPokemon('Pikachu', 1, 'fire', 100));
+console.log(Pokemon.isValidPokemon('Pikachu', 1, 'electric', 100));
